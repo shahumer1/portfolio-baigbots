@@ -1,0 +1,18 @@
+:root { --bb-heading-color: #701018; }
+:root[data-theme='dark'] { --bb-heading-color: #ff2e3e; }
+
+.animated-heading {
+  margin: 0;
+  color: var(--bb-heading-color);
+  font-family: 'Sora', 'Segoe UI', sans-serif;
+  font-size: clamp(1.8rem, 3.4vw, 2.9rem);
+  font-weight: 650;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.animated-heading__word { display: inline-block; }
+.hero-copy .animated-heading,
+.contact-inner .animated-heading,
+.case-contact .animated-heading { color: inherit; }
+.hero-copy .animated-heading em { color: var(--head); }

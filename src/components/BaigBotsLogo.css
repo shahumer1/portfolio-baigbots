@@ -1,0 +1,17 @@
+.bb-brand{--logo-red:#e5060f;--logo-silver:#dadadb;--logo-glow:transparent;display:inline-flex;align-items:center;gap:12px;flex:none;color:#fff;text-decoration:none;white-space:nowrap}
+:root[data-theme="dark"] .bb-brand{--logo-red:#ff2238;--logo-silver:#e8e9ec;--logo-glow:rgba(255,34,56,.38)}
+.bb-logo-mark{position:relative;display:block;flex:none;width:82px;aspect-ratio:2800 / 1718;isolation:isolate;filter:drop-shadow(0 0 10px var(--logo-glow));transition:filter .9s,scale .6s}
+.bb-logo-mark i{position:absolute;inset:0;display:block;pointer-events:none}
+.bb-logo-silver{background:var(--logo-silver);-webkit-mask:url('../assets/baigbots-logo-silver.webp') center / 100% 100% no-repeat;mask:url('../assets/baigbots-logo-silver.webp') center / 100% 100% no-repeat}
+.bb-logo-silver-shading{background:url('../assets/baigbots-logo-silver.webp') center / 100% 100% no-repeat;mix-blend-mode:hard-light}
+.bb-logo-red{background:var(--logo-red);-webkit-mask:url('../assets/baigbots-logo-red.webp') center / 100% 100% no-repeat;mask:url('../assets/baigbots-logo-red.webp') center / 100% 100% no-repeat}
+.bb-logo-red-shading{background:url('../assets/baigbots-logo-red.webp') center / 100% 100% no-repeat;mix-blend-mode:hard-light}
+.bb-logo-shine{opacity:0;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.95) 50%,transparent 58%) 120% 0 / 300% 100% no-repeat;-webkit-mask:url('../assets/baigbots-logo-red.webp') center / 100% 100% no-repeat,url('../assets/baigbots-logo-silver.webp') center / 100% 100% no-repeat;mask:url('../assets/baigbots-logo-red.webp') center / 100% 100% no-repeat,url('../assets/baigbots-logo-silver.webp') center / 100% 100% no-repeat}
+.bb-brand:hover .bb-logo-mark{--logo-red:#ff3346;--logo-glow:rgba(255,51,70,.55);scale:1.05}
+.bb-brand-text strong{display:block;font:700 1.02rem/1 var(--display);letter-spacing:-.035em}.bb-brand-text small{display:block;margin-top:5px;font:500 .52rem/1 var(--mono);letter-spacing:.17em;text-transform:uppercase;color:#ccc}
+.site-header .bb-logo-mark{width:59px}.site-header .bb-brand{gap:9px}
+.folder-logo-mark{--logo-red:#ff4655;--logo-silver:#f2f2f2;width:39px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.2))}
+.hero-folder:hover .folder-logo-mark{scale:1.08}
+@media(max-width:1100px){.site-header .bb-logo-mark{width:49px}.site-header .bb-brand-text strong{font-size:.95rem}.site-header .bb-brand-text small{font-size:.47rem;letter-spacing:.12em}}
+@media(max-width:600px){.site-header .bb-logo-mark{width:44px}.site-header .bb-brand-text strong{font-size:.9rem}.site-header .bb-brand-text small{font-size:.43rem}.bb-brand{gap:8px}}
+:root[data-motion=reduced] .bb-logo-mark{transition:none;scale:1}

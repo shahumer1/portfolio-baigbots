@@ -1,0 +1,53 @@
+/* Motion is applied once when content enters view. */
+.motion-toggle{width:36px;height:36px;border:1px solid #555;background:transparent;color:#fff;display:grid;place-items:center;clip-path:var(--cut)}
+.motion-toggle:hover{color:#ff4d5a}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);transition-delay:var(--reveal-delay,0ms)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+.industry-grid>.reveal,.project-grid>.reveal{height:100%}
+.industry-grid>.reveal>.industry-card,.project-grid>.reveal>.project-card{height:100%}
+.hero-copy>.eyebrow{animation:heroEnter .75s both}
+.hero-copy>p{animation:heroEnter .85s .22s both}
+.hero-actions{animation:heroEnter .85s .34s both}
+.hero-proof{animation:heroEnter .85s .48s both}
+.hero-visual{animation:heroAppear 1s .3s both}
+.hero-window-main{animation:floatMain 7s ease-in-out infinite}
+.hero-window-secondary{animation:floatSecondary 8s ease-in-out infinite}
+.marquee-track{animation-duration:26s;will-change:transform}
+@keyframes heroEnter{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes heroAppear{from{opacity:0;filter:blur(5px)}to{opacity:1;filter:blur(0)}}
+@keyframes floatMain{0%,100%{transform:rotate(-2deg) translateY(0)}50%{transform:rotate(-2deg) translateY(-11px)}}
+@keyframes floatSecondary{0%,100%{transform:rotate(4deg) translateY(0)}50%{transform:rotate(4deg) translateY(10px)}}
+
+/* Featured project slider */
+.featured-slider{position:relative}
+.slider-topline{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px;color:var(--head)}
+.slider-topline>.mono{font-size:16px}
+.slider-topline>.mono span{font-size:12px;color:var(--muted)}
+.slider-controls{display:flex;gap:8px}
+.slider-controls button{width:47px;height:47px;display:grid;place-items:center;border:1px solid var(--line);background:var(--card);color:var(--text);clip-path:var(--cut);transition:background .25s,color .25s,transform .25s}
+.slider-controls button:first-child svg{transform:rotate(180deg)}
+.slider-controls button:hover{background:var(--accent);color:#fff;transform:translateY(-2px)}
+.slider-viewport{overflow:hidden;touch-action:pan-y;cursor:grab;clip-path:var(--cut)}
+.slider-viewport:active{cursor:grabbing}
+.slider-track{display:flex;transition:transform .65s cubic-bezier(.22,1,.36,1);will-change:transform}
+.slider-slide{flex:0 0 100%;min-width:0}
+.slider-slide .project-card-featured{display:grid;grid-template-columns:1.1fr .9fr;min-height:430px;box-shadow:none}
+.slider-slide .project-card-featured:hover{transform:none;box-shadow:none}
+.slider-slide .project-image{height:100%;min-height:430px}
+.slider-slide .project-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(30px,5vw,64px)}
+.slider-slide .project-copy h3{font-size:clamp(2.1rem,3.5vw,3.5rem);line-height:1.12;margin:22px 0 18px}
+.slider-slide .project-copy p{font-size:18px;line-height:1.55;min-height:0}
+.slider-slide .project-footer{margin-top:35px}
+.slider-slide .project-footer>span:first-child{font-size:11px}
+.slider-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:17px}
+.slider-dots{display:flex;gap:8px}
+.slider-dots button{width:52px;height:20px;padding:7px 0;border:0;background:transparent;display:flex;align-items:center}
+.slider-dots button span{display:block;width:100%;height:3px;background:var(--line);transition:background .25s}
+.slider-dots button.active span{background:var(--accent)}
+.slider-hint{font:500 10px var(--mono);letter-spacing:.12em;color:var(--muted)}
+@media(max-width:800px){.slider-slide .project-card-featured{grid-template-columns:1fr;min-height:0}.slider-slide .project-image{height:300px;min-height:0}.slider-slide .project-copy{padding:29px}.slider-slide .project-copy h3{font-size:2rem}.slider-slide .project-copy p{font-size:16px}.slider-slide .project-footer{margin-top:24px}}
+@media(max-width:600px){.slider-slide .project-image{height:220px}.slider-slide .project-copy{padding:24px}.slider-slide .project-copy h3{font-size:1.75rem;margin:15px 0 10px}.slider-slide .project-copy p{font-size:15px}.slider-hint{font-size:8px}.slider-controls button{width:42px;height:42px}}
+:root[data-motion=reduced] .reveal{opacity:1;transform:none;transition:none}
+:root[data-motion=reduced] .hero-copy>.eyebrow,:root[data-motion=reduced] .hero-copy h1,:root[data-motion=reduced] .hero-copy>p,:root[data-motion=reduced] .hero-actions,:root[data-motion=reduced] .hero-proof,:root[data-motion=reduced] .hero-visual,:root[data-motion=reduced] .hero-window-main,:root[data-motion=reduced] .hero-window-secondary{animation:none}
+:root[data-motion=reduced] .slider-track{transition:none}
+:root[data-motion=reduced] .marquee-track,:root[data-motion=reduced] .circuit-pulse,:root[data-motion=reduced] .contact-pulse{animation:none}
