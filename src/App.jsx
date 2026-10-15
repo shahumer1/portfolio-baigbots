@@ -7,18 +7,16 @@ import HomePage from './pages/HomePage.jsx';
 import IndustriesPage from './pages/IndustriesPage.jsx';
 import IndustryPage from './pages/IndustryPage.jsx';
 import ProjectsPage from './pages/ProjectsPage.jsx';
-import ContactPage from './pages/ContactPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import { industries, projects } from './data/projects.js';
 import { useTheme } from './hooks/useTheme.js';
-import { useMotion } from './hooks/useMotion.js';
 
 function routeFor(pathname) {
   const path = pathname.replace(/\/+$/, '') || '/';
   if (path === '/') return { title: 'Industry Solutions & Work', page: <HomePage /> };
   if (path === '/industries') return { title: 'Industries', page: <IndustriesPage /> };
   if (path === '/projects') return { title: 'All Projects', page: <ProjectsPage /> };
-  if (path === '/contact') return { title: 'Contact', page: <ContactPage /> };
+  if (path === '/contact') return { title: 'Contact', page: <ExternalRedirect /> };
 
   const industryId = path.match(/^\/industries\/([^/]+)$/)?.[1];
   if (industryId) {
@@ -37,9 +35,13 @@ function routeFor(pathname) {
   return { title: 'Page not found', page: <NotFoundPage /> };
 }
 
+function ExternalRedirect() {
+  useEffect(() => { window.location.replace('https://baigbots.com'); }, []);
+  return null;
+}
+
 export default function App() {
   const [theme, toggleTheme] = useTheme();
-  const [motion, toggleMotion] = useMotion();
   const route = routeFor(window.location.pathname);
 
   useEffect(() => {
@@ -48,7 +50,7 @@ export default function App() {
 
   return <>
     <CursorGraph />
-    <Navbar theme={theme} motion={motion} onToggleTheme={toggleTheme} onToggleMotion={toggleMotion} />
+    <Navbar theme={theme} motion="full" onToggleTheme={toggleTheme} />
     {route.page}
     <SiteFooter />
   </>;

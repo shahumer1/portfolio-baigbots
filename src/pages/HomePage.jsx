@@ -6,7 +6,7 @@ import { ArrowIcon } from '../components/Icons.jsx';
 const destinations = [
   { number: '01', title: 'Explore industries', description: 'See solutions organized around the teams and workflows they serve.', href: '/industries/' },
   { number: '02', title: 'All projects', description: 'Browse every build, technology stack and case study in the portfolio.', href: '/projects/' },
-  { number: '03', title: 'Start a project', description: 'Tell us where your team gets stuck and what you want to improve.', href: '/contact/' },
+  { number: '03', title: 'Start a project', description: 'Tell us where your team gets stuck and what you want to improve.', href: 'https://baigbots.com' },
 ];
 
 export default function HomePage() {

@@ -31,4 +31,3 @@ export const projects = [
   { id:'zapier', title:'Zapier integration builds', industry:'operations', type:'Workflow integration', image:'/images/zapier.webp', description:'Branching workflows that move records between webhooks, Workspace, CRMs and invoicing tools.', challenge:'Teams needed dependable data movement between tools with clear error paths.', solution:'Zaps with filters, loops, path logic and webhook steps for registrations, invoices and CRM tasks.', features:['Success and error branches','Webhook invoicing','Webinar and CRM task routing'], stack:['Zapier','Google Sheets','Gmail','A3Factura','WebinarKit'] },
 ];
 
-export const featuredIds = ['careclinic','estatepro','gohighlevel'];

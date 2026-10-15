@@ -8,7 +8,7 @@ function Circuit() { return <svg className="hero-circuit" viewBox="0 0 640 500" 
 
 export default function Hero() {
   return <section className="hero" id="top"><Circuit/><div className="container hero-grid">
-    <div className="hero-copy"><span className="eyebrow">BaigBots / Selected work</span><AnimatedHeading as="h1">Built for the way <em>your industry</em> works.</AnimatedHeading><p>Software, AI agents and automation shaped around the real work of clinics, brokerages, sales teams and operations.</p><div className="hero-actions"><a className="button" href="#industries">Explore industries <ArrowIcon/></a><a className="text-link" href="#all-work">View all projects <ArrowIcon/></a></div><div className="hero-proof"><div><CountUp value={5}/><span>Product UIs</span></div><div><CountUp value={84}/><span>Real screens</span></div><div><CountUp value={12}/><span>Platforms</span></div></div></div>
+    <div className="hero-copy"><span className="eyebrow">BaigBots / Selected work</span><AnimatedHeading as="h1">Built for the way <em>your industry</em> works.</AnimatedHeading><p>Software, AI agents and automation shaped around the real work of clinics, brokerages, sales teams and operations.</p><div className="hero-actions"><a className="button" href="/industries/">Explore industries <ArrowIcon/></a><a className="text-link" href="/projects/">View all projects <ArrowIcon/></a></div><div className="hero-proof"><div><CountUp value={5}/><span>Product UIs</span></div><div><CountUp value={84}/><span>Real screens</span></div><div><CountUp value={12}/><span>Platforms</span></div></div></div>
     <HeroFolder />
   </div><div className="hero-bottom container"><span>SCROLL TO EXPLORE THE WORK</span><span>01 — 06 INDUSTRIES</span></div></section>;
 }

@@ -15,3 +15,5 @@
 .folder-logo-wordmark{display:inline-flex;align-items:baseline;gap:.22em;white-space:nowrap;line-height:1}
 .folder-logo-mark{width:39px;flex:0 0 39px;align-self:center}
 @media(max-width:420px){.folder-toggle-title{gap:7px}.folder-logo-mark{width:32px;flex-basis:32px}}
+.folder-toggle-title{translate:0 11px;transition:translate .35s ease}
+@media(max-width:420px){.folder-toggle-title{translate:0 8px}}

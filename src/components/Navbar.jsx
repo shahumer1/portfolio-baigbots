@@ -2,21 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
 import BaigBotsLogo from './BaigBotsLogo.jsx';
-import { MotionIcon, ThemeIcon } from './Icons.jsx';
+import { ThemeIcon } from './Icons.jsx';
 import './Navbar.css';
 
 gsap.registerPlugin(ScrambleTextPlugin);
 
 const links = [
-  { label: 'Industries', href: '/industries/' },
+  { label: 'Home', href: '/' },
+  { label: 'Industry', href: '/industries/' },
   { label: 'All projects', href: '/projects/' },
-  { label: 'Contact', href: '/contact/' },
 ];
 
-export default function Navbar({ theme, motion, onToggleTheme, onToggleMotion }) {
+export default function Navbar({ theme, motion, onToggleTheme }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const currentPath = window.location.pathname;
+  const isCurrent = href => href === '/' ? currentPath === '/' : currentPath.startsWith(href);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -43,7 +44,7 @@ export default function Navbar({ theme, motion, onToggleTheme, onToggleMotion })
 
       <nav className="bb-nav__links" aria-label="Primary navigation">
         {links.map(({ label, href }) => <a key={href} href={href} aria-label={label}
-          aria-current={currentPath.startsWith(href) ? 'page' : undefined}
+          aria-current={isCurrent(href) ? 'page' : undefined}
           onPointerEnter={event => scrambleText(event, label)}
           onFocus={event => scrambleText(event, label)}>
           <span className="bb-nav__label" aria-hidden="true"><span className="bb-nav__measure">{label}</span><span className="bb-nav__animated">{label}</span></span>
@@ -51,11 +52,7 @@ export default function Navbar({ theme, motion, onToggleTheme, onToggleMotion })
       </nav>
 
       <div className="bb-nav__actions">
-        <a className="bb-nav__cta" href="/contact/"><span>Start a project</span><span aria-hidden="true">↗</span></a>
-        <button className="bb-nav__icon" type="button" onClick={onToggleMotion}
-          aria-label={motion === 'full' ? 'Pause animations' : 'Play animations'} title={motion === 'full' ? 'Pause animations' : 'Play animations'}>
-          <MotionIcon motion={motion} />
-        </button>
+        <a className="bb-nav__cta" href="https://baigbots.com"><span>Start a project</span><span aria-hidden="true">↗</span></a>
         <button className="bb-nav__icon" type="button" onClick={onToggleTheme}
           aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`} aria-pressed={theme === 'dark'}>
           <ThemeIcon theme={theme} />
@@ -70,7 +67,8 @@ export default function Navbar({ theme, motion, onToggleTheme, onToggleMotion })
       </div>
     </div>
     <nav className={`bb-nav__mobile${menuOpen ? ' is-open' : ''}`} id="bb-mobile-menu" aria-label="Mobile navigation" inert={!menuOpen}>
-      {links.map(({ label, href }) => <a key={href} href={href} onClick={close} aria-current={currentPath.startsWith(href) ? 'page' : undefined}>{label}<span aria-hidden="true">↗</span></a>)}
+      {links.map(({ label, href }) => <a key={href} href={href} onClick={close} aria-current={isCurrent(href) ? 'page' : undefined}>{label}<span aria-hidden="true">↗</span></a>)}
+      <a className="bb-nav__mobile-cta" href="https://baigbots.com" onClick={close}>Start a project<span aria-hidden="true">↗</span></a>
     </nav>
   </header>;
 }
