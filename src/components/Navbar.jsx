@@ -52,7 +52,7 @@ export default function Navbar({ theme, motion, onToggleTheme }) {
       </nav>
 
       <div className="bb-nav__actions">
-        <a className="bb-nav__cta" href="https://baigbots.com"><span>Start a project</span><span aria-hidden="true">↗</span></a>
+        <a className="bb-nav__cta" href="https://baigbots.com"><span>Start a project</span><span aria-hidden="true"></span></a>
         <button className="bb-nav__icon" type="button" onClick={onToggleTheme}
           aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`} aria-pressed={theme === 'dark'}>
           <ThemeIcon theme={theme} />
